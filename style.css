@@ -389,6 +389,10 @@ body {
     padding-inline: 0;
   }
 
+  .hero-content .btn{
+    margin-inline: 0;
+  }
+
   .footer .container,
   .footer-list {
     grid-template-columns: repeat(2, 1fr);
