@@ -171,7 +171,6 @@ body {
 
 .header .container {
   padding-block: 20px;
-  padding-inline: 16px;
 }
 
 .header .nav-close-btn {
@@ -405,22 +404,20 @@ body {
 /*======Responsive for devices more than 992px====*/
 
 @media (min-width: 992px) {
-  .container:not(.header .container, .hero .container) {
+  .container:not(.hero .container) {
     max-width: 930px;
   }
 
-  /*========Header=======*/
-
   .header .container {
-    max-width: 1130px;
+    margin-inline: auto;
   }
 
+  /*========Header=======*/
   .header .btn {
     display: block;
   }
 
   .navbar,
-  .nav-link,
   .nav-list {
     all: unset;
   }
@@ -438,9 +435,34 @@ body {
     display: flex;
     align-items: center;
     gap: 20px;
+  }
+
+  .nav-link {
+    position: relative;
     font-family: var(--font-family-Roboto);
     color: var(--grayish-blue);
     font-weight: 600;
+    font-size: 16px;
+    transition: color 300ms;
+  }
+
+  .nav-link:after {
+    content: "";
+    position: absolute;
+    width: 0%;
+    left: 0;
+    bottom: 0;
+    height: 3px;
+    border-radius: 4px;
+    background-color: var(--bright-cyan);
+  }
+
+  .nav-link:is(:hover, :focus) {
+    color: var(--dark-blue);
+  }
+
+  .nav-link:is(:hover, :focus)::after {
+    width: 100%;
   }
 
   .nav-toggle-btn {
@@ -460,11 +482,6 @@ body {
     padding-block: 0;
   }
 
-  .hero-text,
-  .feature-text {
-    font-size: 18px;
-  }
-
   .feature {
     margin-block-start: -80px;
   }
@@ -472,6 +489,11 @@ body {
   .hero-banner {
     background-image: url("/images/bg-intro-desktop.svg");
     background-position-x: 40%;
+  }
+
+  .hero-text,
+  .feature-text {
+    font-size: 17px;
   }
 
   .feature-list,
@@ -516,10 +538,6 @@ body {
   :root {
     --fs-section-title: 40px;
     --fs-card-title: 26px;
-  }
-
-  .header .container {
-    padding-inline: 80px;
   }
 
   .hero-title {
